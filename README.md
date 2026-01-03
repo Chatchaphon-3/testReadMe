@@ -7,14 +7,14 @@ All API endpoints are prefixed with `/v1`.
 ### Authentication (`/auth`)
 
 -   `POST /login`: Log in with a Google ID token.
--   `POST /logout`: Log out the current user (requires authentication).
+-   `POST /logout`: (requireAuth) Log out the current user .
 
 ### Users (`/users`)
 
--   `GET /me`: Get the profile of the currently authenticated user.
--   `GET /me/bets`: Get bets placed by the current user.
--   `POST /me/bets`: Place a new bet.
--   `GET /me/transactions`: Get the transaction history for the current user.
+-   `GET /me`: (requireAuth) Get the profile of the currently authenticated user.
+-   `GET /me/bets`: (requireAuth) Get bets placed by the current user.
+-   `POST /me/bets`: (requireAuth) Place a new bet.
+-   `GET /me/transactions`: (requireAuth) Get the transaction history for the current user.
 -   `GET /top`: Get the leaderboard of top users by points.
 -   `GET /`: (Admin) Get a list of all users.
 -   `GET /:id`: (Admin) Get a specific user by ID.
