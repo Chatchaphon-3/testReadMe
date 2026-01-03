@@ -1,5 +1,3 @@
-## Getting Started
-
 ## API Endpoints
 
 All API endpoints are prefixed with `/v1`.
