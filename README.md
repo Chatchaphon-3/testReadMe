@@ -105,18 +105,6 @@ npm run build
 npm run start
 ```
 
-## Available Scripts
-
--   `npm run dev`: Starts the development server using `tsx`.
--   `npm run build`: Compiles the TypeScript source code to JavaScript in the `dist` directory.
--   `npm run start`: Starts the compiled application from the `dist` directory.
--   `npm run lint`: Lints the source code using ESLint.
--   `npm run db.create`: Creates a PostgreSQL Docker container named `cp-olympic-db`.
--   `npm run db.start`: Starts the database container.
--   `npm run db.generate`: Generates Prisma Client based on the schema.
--   `npm run db.migrate`: Applies pending database migrations.
--   `npm run db.seed`: Populates the database with seed data from `prisma/seed.ts`.
--   `npm run db.studio`: Opens Prisma Studio to view and edit database content.
 
 ## API Endpoints
 
