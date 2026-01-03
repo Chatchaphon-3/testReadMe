@@ -5,6 +5,7 @@ All API endpoints are prefixed with `/v1`.
 ### Authentication (`/auth`)
 
 	```json
+
 	// Request (body)
 	{ "googleIdToken": "ya29.a0Af..." }
 
@@ -13,6 +14,7 @@ All API endpoints are prefixed with `/v1`.
 		"success": true,
 		"data": "eyJhbGciOiJI..." // access token
 	}
+  
 	```
 
 ### Users (`/users`)
