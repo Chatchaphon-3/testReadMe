@@ -4,7 +4,7 @@ All API endpoints are prefixed with `/v1`.
 
 ### Authentication (`/auth`)
 
-- `POST /login`: Log in with a Google ID token.
+- `POST /auth/login`: Log in with a Google ID token.
 
 ```json
 // Request (body)
@@ -17,7 +17,7 @@ All API endpoints are prefixed with `/v1`.
 }
 ```
 
-- `POST /logout`: (requireAuth) Log out the current user.
+- `POST /auth/logout`: (requireAuth) Log out the current user.
 
 ```json
 // Example response
@@ -29,7 +29,7 @@ All API endpoints are prefixed with `/v1`.
 
 ### Users (`/users`)
 
-- `GET /me`: (requireAuth) Get the profile of the currently authenticated user.
+- `GET /users/me`: (requireAuth) Get the profile of the currently authenticated user.
 
 Example URL: `http://localhost:3000/v1/users/me`
 
@@ -95,7 +95,7 @@ Example URL: `http://localhost:3000/v1/users/me/bets`
 }
 ```
 
-- `GET /me/transactions`: (requireAuth) Get the transaction history for the current user.
+- `GET /users/me/transactions`: (requireAuth) Get the transaction history for the current user.
 
 Example URL: `http://localhost:3000/v1/users/me/transactions?page=1&pageSize=10&source=OTHER`
 
@@ -118,7 +118,7 @@ Example URL: `http://localhost:3000/v1/users/me/transactions?page=1&pageSize=10&
 }
 ```
 
-- `GET /me/bets/:matchId`: (requireAuth) Get a specific bet for the current user by match id.
+- `GET /users/me/bets/:matchId`: (requireAuth) Get a specific bet for the current user by match id.
 
 Example URL: `http://localhost:3000/v1/users/me/bets/45`
 
@@ -138,7 +138,7 @@ Example URL: `http://localhost:3000/v1/users/me/bets/45`
 }
 ```
 
-- `GET /top`: Get the leaderboard of top users by points.
+- `GET /users/top`: Get the leaderboard of top users by points.
 
 Example URL: `http://localhost:3000/v1/users/top?limit=10`
 
@@ -152,7 +152,7 @@ Example URL: `http://localhost:3000/v1/users/top?limit=10`
 }
 ```
 
-- `GET /`: (Admin) Get a list of all users.
+- `GET /users/`: (Admin) Get a list of all users.
 
 Example URL: `http://localhost:3000/v1/users?q=alice&role=USER&page=1`
 
@@ -167,7 +167,7 @@ Example URL: `http://localhost:3000/v1/users?q=alice&role=USER&page=1`
 }
 ```
 
-- `GET /:id`: (Admin) Get a specific user by ID.
+- `GET /users/:id`: (Admin) Get a specific user by ID.
 
 Example URL: `http://localhost:3000/v1/users/12`
 
@@ -181,7 +181,7 @@ Example URL: `http://localhost:3000/v1/users/12`
 
 ### Matches (`/matches`)
 
-- `GET /`: Get a list of all matches. Supports filtering and pagination.
+- `GET /matches/`: Get a list of all matches. Supports filtering and pagination.
 
 Example URL: `http://localhost:3000/v1/matches?date=2025-12-24&sportId=1&page=1`
 
@@ -202,7 +202,7 @@ Example URL: `http://localhost:3000/v1/matches?date=2025-12-24&sportId=1&page=1`
 }
 ```
 
-- `POST /`: (Admin) Create a new match.
+- `POST /matches/`: (Admin) Create a new match.
 
 Example URL: `http://localhost:3000/v1/matches`
 
@@ -223,7 +223,7 @@ Example URL: `http://localhost:3000/v1/matches`
 }
 ```
 
-- `GET /:id`: Get details for a specific match.
+- `GET /matches/:id`: Get details for a specific match.
 
 Example URL: `http://localhost:3000/v1/matches/45?include=teams`
 
@@ -245,7 +245,7 @@ Example URL: `http://localhost:3000/v1/matches/45?include=teams`
 }
 ```
 
-- `PUT /:id/results`: (Admin) Record the results for a settled match.
+- `PUT /matches/:id/results`: (Admin) Record the results for a settled match.
 
 Example URL: `http://localhost:3000/v1/matches/45/results`
 
@@ -266,7 +266,7 @@ Example URL: `http://localhost:3000/v1/matches/45/results`
 
 ### Teams (`/teams`)
 
-- `GET /`: Get a list of all teams.
+- `GET /teams/`: Get a list of all teams.
 
 Example URL: `http://localhost:3000/v1/teams?sportId=1&q=united`
 
@@ -281,7 +281,7 @@ Example URL: `http://localhost:3000/v1/teams?sportId=1&q=united`
 }
 ```
 
-- `POST /`: (Admin) Create a new team.
+- `POST /teams/`: (Admin) Create a new team.
 
 Example URL: `http://localhost:3000/v1/teams`
 
@@ -296,7 +296,7 @@ Example URL: `http://localhost:3000/v1/teams`
 }
 ```
 
-- `GET /:id`: Get details for a specific team.
+- `GET /teams/:id`: Get details for a specific team.
 
 Example URL: `http://localhost:3000/v1/teams/1?include=sport`
 
@@ -314,7 +314,7 @@ Example URL: `http://localhost:3000/v1/teams/1?include=sport`
 }
 ```
 
-- `PATCH /:id`: (Admin) Update a team's details.
+- `PATCH /teams/:id`: (Admin) Update a team's details.
 
 Example URL: `http://localhost:3000/v1/teams/1`
 
@@ -326,7 +326,7 @@ Example URL: `http://localhost:3000/v1/teams/1`
 { "success": true, "data": { "id": 1, "sportId": 1, "name": "New Team Name", "members": ["alice","charlie"] } }
 ```
 
-- `DELETE /:id`: (Admin) Delete a team.
+- `DELETE /teams/:id`: (Admin) Delete a team.
 
 Example URL: `http://localhost:3000/v1/teams/1`
 
@@ -337,7 +337,7 @@ Example URL: `http://localhost:3000/v1/teams/1`
 
 ### Bets (`/bets`)
 
-- `GET /`: (Admin) Get a list of all bets.
+- `GET /bets/`: (Admin) Get a list of all bets.
 
 Example URL: `http://localhost:3000/v1/bets?userId=12&matchId=45`
 
@@ -352,7 +352,7 @@ Example URL: `http://localhost:3000/v1/bets?userId=12&matchId=45`
 }
 ```
 
-- `GET /:id`: (Admin) Get a specific bet by ID.
+- `GET /bets/:id`: (Admin) Get a specific bet by ID.
 
 Example URL: `http://localhost:3000/v1/bets/123`
 
@@ -376,7 +376,7 @@ Example URL: `http://localhost:3000/v1/bets/123`
 
 ### Transactions (`/transactions`)
 
-- `GET /`: (Admin) Get a list of all transactions.
+- `GET /transactions/`: (Admin) Get a list of all transactions.
 
 Example URL: `http://localhost:3000/v1/transactions?userId=12&source=BET`
 
@@ -391,7 +391,7 @@ Example URL: `http://localhost:3000/v1/transactions?userId=12&source=BET`
 }
 ```
 
-- `GET /:id`: (Admin) Get a specific transaction by ID.
+- `GET /transactions/:id`: (Admin) Get a specific transaction by ID.
 
 Example URL: `http://localhost:3000/v1/transactions/11`
 
