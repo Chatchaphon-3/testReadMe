@@ -52,6 +52,7 @@ Example URL: `http://localhost:4000/v1/users/me`
     "lastLogoutAt": "2025-12-24T12:34:56.000Z"
   }
 }
+// role : { "USER", "ADMIN" }
 ```
 
 - `GET /me/bets`: (requireAuth) Get bets placed by the current user.
@@ -75,6 +76,7 @@ Example URL: `http://localhost:4000/v1/users/me/bets?page=1&pageSize=20&sort=cre
   ],
   "pagination": { "page": 1, "pageSize": 20, "total": 5 }
 }
+// status : { "UNSETTLED", "WON", "LOST" }
 ```
 
 - `POST /me/bets`: (requireAuth) Place a new bet.
@@ -121,6 +123,7 @@ Example URL: `http://localhost:4000/v1/users/me/transactions?page=1&pageSize=10&
   ],
   "pagination": { "page": 1, "pageSize": 10, "total": 1 }
 }
+//source : { "BET", "OTHER" }
 ```
 
 - `GET /users/me/bets/:matchId`: (requireAuth) Get a specific bet for the current user by match id.
@@ -152,7 +155,8 @@ Example URL: `http://localhost:4000/v1/users/top?limit=10`
 {
   "success": true,
   "data": [
-    { "id": 3, "email": "bob@example.com", "username": "bob", "points": 1200 }
+    { "id": 3, "email": "bob@example.com", "username": "bob", "points": 1200 } , 
+    { "id": 7, "email": "charlie@example.com", "username": "charlie", "points": 800 }
   ]
 }
 ```
