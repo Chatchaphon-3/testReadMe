@@ -6,7 +6,7 @@ All API endpoints are prefixed with `/v1`.
 
 - `POST /auth/login`: Log in with a Google ID token.
 
-Example URL: http://localhost:4000/v1/auth/login
+Example URL: `http://localhost:4000/v1/auth/login`
 
 ```json
 // Request (body)
@@ -21,7 +21,7 @@ Example URL: http://localhost:4000/v1/auth/login
 
 - `POST /auth/logout`: (requireAuth) Log out the current user.
 
-Example URL: http://localhost:4000/v1/auth/logout
+Example URL: `http://localhost:4000/v1/auth/logout`
 
 
 ```json
