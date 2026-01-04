@@ -76,7 +76,7 @@ Example URL: `http://localhost:4000/v1/users/me/bets?page=1&pageSize=20&sort=cre
   ],
   "pagination": { "page": 1, "pageSize": 20, "total": 5 }
 }
-// status : { "UNSETTLED", "WON", "LOST" }
+// status : { "UNSETTLED", "WIN", "LOSE" , "REFUNDED" }
 ```
 
 - `POST /me/bets`: (requireAuth) Place a new bet.
@@ -100,6 +100,7 @@ Example URL: `http://localhost:4000/v1/users/me/bets`
     "stake": 100.5
   }
 }
+// status : { "UNSETTLED", "WIN", "LOSE" , "REFUNDED" }
 ```
 
 - `GET /users/me/transactions`: (requireAuth) Get the transaction history for the current user.
@@ -144,6 +145,7 @@ Example URL: `http://localhost:4000/v1/users/me/bets/45`
     "stake": 100.5
   }
 }
+//status : { "UNSETTLED", "WIN", "LOSE" , "REFUNDED"}
 ```
 
 - `GET /users/top`: Get the leaderboard of top users by points.
@@ -321,6 +323,8 @@ Example URL: `http://localhost:4000/v1/teams/1?include=sport`
     "sport": { "id": 1, "name": "Football", "format": "ONE_ON_ONE", "ordering": "ASC" }
   }
 }
+//format : { "ONE_ON_ONE", "FFA" }
+//ordering : { "ASC", "DESC" }
 ```
 
 - `PATCH /teams/:id`: (Admin) Update a team's details.
@@ -359,6 +363,7 @@ Example URL: `http://localhost:4000/v1/bets?userId=12&matchId=45`
   ],
   "pagination": { "page": 1, "pageSize": 20, "total": 1 }
 }
+//status : { "UNSETTLED", "WIN", "LOSE" , "REFUNDED"}
 ```
 
 - `GET /bets/:id`: (Admin) Get a specific bet by ID.
@@ -381,6 +386,7 @@ Example URL: `http://localhost:4000/v1/bets/123`
     "user": { "id": 12, "email": "alice@example.com", "username": "alice" }
   }
 }
+//status : { "UNSETTLED", "WIN", "LOSE" , "REFUNDED"}
 ```
 
 ### Transactions (`/transactions`)
@@ -398,6 +404,7 @@ Example URL: `http://localhost:4000/v1/transactions?userId=12&source=BET`
   ],
   "pagination": { "page": 1, "pageSize": 20, "total": 1 }
 }
+//source : { "BET", "OTHER" }
 ```
 
 - `GET /transactions/:id`: (Admin) Get a specific transaction by ID.
@@ -419,6 +426,7 @@ Example URL: `http://localhost:4000/v1/transactions/11`
     "user": { "id": 12, "email": "alice@example.com", "username": "alice" }
   }
 }
+//source : { "BET", "OTHER" }
 ```
 
 *** End Patch
